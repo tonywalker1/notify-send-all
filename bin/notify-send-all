@@ -52,8 +52,13 @@ done
 
 for SOME_USER in /run/user/*; do
     SOME_USER=$(basename "$SOME_USER")
-    sudo -u $(id -u -n "$SOME_USER") \
-        DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/"$SOME_USER"/bus notify-send ${@+"$@"}
+    if [ "$SOME_USER" = 0 ]; then
+#        echo "* Skipping root user."
+        :
+    else
+        sudo -u $(id -u -n "$SOME_USER") \
+            DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/"$SOME_USER"/bus notify-send ${@+"$@"}
+    fi
 done
 
 exit 0
