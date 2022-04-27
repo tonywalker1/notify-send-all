@@ -13,3 +13,7 @@ passwords for each user. Probably not something you want from a script.
 ```shell
 notify-send-all "Lifeboats!" "The ship is sinking."
 ```
+
+## Installation
+
+Simply copy the file to /usr/local/bin (or similar).
