@@ -1,12 +1,19 @@
 # notify-send-all
-Uses notify-send to notify all GUI users.
 
-notify-send is a great tool, but it only notifies the user that runs the
-script (without some help). This script provides that help and allows 
-scripts run as root (e.g., a cron job or systemd.timer).
+Uses notify-send (libnotify) to send a desktop notification to all users with a
+graphical session (e.g., Gnome).
 
-**NOTE:** This script is meant to run as root. Otherwise, sudo will ask for 
-passwords for each user. Probably not something you want from a script.
+notify-send is a great tool, but it only notifies the user that runs it
+(without some help). This script provides that help and allows
+scripts run as root (e.g., a cron job or systemd.timer) to send
+notifications to all graphical sessions.
+
+**NOTES:**
+
+1. This script is meant to run as root. Otherwise, sudo will ask for
+   passwords for each user. Probably not something you want from a script.
+2. On Debian (and probably all derivatives), you will need to install
+   libnotify-bin.
 
 ## Usage
 
